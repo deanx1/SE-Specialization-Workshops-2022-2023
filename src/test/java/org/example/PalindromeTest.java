@@ -3,51 +3,38 @@ package org.example;
 //import junit.framework.Test;
 //import junit.framework.TestCase;
 //import junit.framework.TestSuite;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
 
 /**
- * Unit test for simple App.
+ * Unit tests for Palindrome exercise.
  */
 public class PalindromeTest
-    extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public PalindromeTest(String testName )
-    {
-        super( testName );
-
-        Palindrome palindrome;
-
-//        @BeforeEach
-//        void setUp() {
-//            palindrome = new Palindrome();
-//        }
+    Palindrome palindrome;
+    @Before
+    public void setUp() {
+        palindrome = new Palindrome();
     }
-
-//    /**
-//     * @return the suite of tests being tested
-//     */
-//    public static Test suite()
-//    {
-//        return (Test) new TestSuite( PalindromeTest.class );
-//    }
 
     /**
      * Unit Test
      */
     @Test
     @DisplayName("Palindrome variable 'madam' should return true.")
-     void testPalindromeTrue()
+     public void testPalindromeTrue()
     {
-        assertTrue( "this will succeed", true );
+        assertTrue( Palindrome.isPalindrome("madam"));
+    }
+
+    @Test
+    @DisplayName("Palindrome variable 'Adam' should return false.")
+    public void testPalindromeFalse()
+    {
+        assertFalse( Palindrome.isPalindrome("Adam"));
     }
 }

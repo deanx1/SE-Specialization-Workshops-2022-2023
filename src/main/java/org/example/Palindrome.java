@@ -1,7 +1,10 @@
 package org.example;
 
 /**
- * Hello world!
+ * Palindrome checker exercise in preparation for PancakeSorter.
+ *
+ * User story: As a palindrome lover I would like to know if a word is a palindrome, so I can add them to my collection of
+ * palindromes.
  *
  */
 public class Palindrome
@@ -12,14 +15,15 @@ public class Palindrome
         String truePalindrome =  "madam";
         String falsePalindrome =  "adam";
 
-        System.out.println( "Sentence " + truePalindrome + " is palindrome?: " + isPalinDrome(truePalindrome));
-        System.out.println( "Sentence '" + falsePalindrome + "' is palindrome?: " + isPalinDrome(falsePalindrome));
+        System.out.println( "Sentence " + truePalindrome + " is palindrome?: " + isPalindrome(truePalindrome));
+        System.out.println( "Sentence '" + falsePalindrome + "' is palindrome?: " + isPalindrome(falsePalindrome));
 //        System.out.println(truePalindrome.length());
 //        System.out.println(truePalindrome.length()/2);
     }
 
     // TODO test if it works with even and uneven strings.
-    public static Boolean isPalinDrome(String possiblePalindrome) {
+    public static Boolean isPalindrome(String possiblePalindrome)
+    {
         int palLength = possiblePalindrome.length();
         System.out.println("possiblePalindrome: " + possiblePalindrome + " palLength: " + palLength + " iterating times: " + palLength/2);
         for (int counter = 0; counter < palLength/2; counter++) {
