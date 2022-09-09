@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -74,5 +76,42 @@ public class PancakeSorterTest {
     {
         int[] pancakeStack = {10, 50, 20, 60, 30};
         assertEquals( pancakeSorter.findMax(pancakeStack, 4), 3);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that the pancake array should not change when flipped at zero")
+    public void FlipAtIndexZero()
+    {
+        int[] pancakeStack = {50, 20, 30, 10, 60};
+        int[] originalPancakeStack = pancakeStack.clone();
+
+        pancakeSorter.flip(pancakeStack, 0);
+
+//        System.out.println(Arrays.toString(originalPancakeStack));
+//        System.out.println(Arrays.toString(pancakeStack));
+
+        assertArrayEquals(originalPancakeStack, pancakeStack);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that the pancake flip occurs at the right index and the result is a sorted array")
+    public void FlipAtSecondToLastIndex()
+    {
+        int[] pancakeStack = {40, 30, 20, 10, 50};
+        int[] pancakeStackSorted = {10, 20, 30, 40, 50};
+        int[] originalPancakeStack = pancakeStack.clone();
+
+        pancakeSorter.flip(pancakeStack, pancakeStack.length - 2);
+
+        System.out.println(Arrays.toString(originalPancakeStack));
+        System.out.println(Arrays.toString(pancakeStack));
+
+        assertArrayEquals(pancakeStack, pancakeStackSorted);
     }
 }

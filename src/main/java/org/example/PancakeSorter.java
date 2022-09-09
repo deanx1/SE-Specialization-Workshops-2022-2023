@@ -8,6 +8,7 @@ public class PancakeSorter {
 
     int[] unsortedPancakes = {10, 5, 24, 2, 36, 27};
     int[] unsortedPancakes2 = {10, 20, 30, 40, 50, 60};
+    int[] unsortedPancakes3 = {60, 50, 40, 30, 20, 10};
 
     public static void main( String[] args )
     {
@@ -25,8 +26,21 @@ public class PancakeSorter {
         return unsortedPancakes;
     }
 
-    static void flip (int[] pancakes, int index)
+    /**
+     * Flips (reverses) the pancake array at the specified index.
+     */
+    static void flip (int[] pancakes, int cutOffIndex)
     {
+        int start = 0;
+        int temp;
+
+        while (start < cutOffIndex){
+            temp = pancakes[start];
+            pancakes[start] = pancakes[cutOffIndex];
+            pancakes[cutOffIndex] = temp;
+            start++;
+            cutOffIndex--;
+        }
 
     }
 
@@ -37,7 +51,6 @@ public class PancakeSorter {
     {
         int indexCurrentMax = 0;
         for (int iterator = 0; iterator < searchCutoff; iterator++) {
-            System.out.println( "FOR iterator= " + iterator);
 //            System.out.println( "FOR iterator= " + iterator);
             if (pancakes[iterator] > pancakes[indexCurrentMax]) {
                 indexCurrentMax = iterator;
