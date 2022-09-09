@@ -5,7 +5,20 @@ package org.example;
  * min 1, max 25
  */
 public class PancakeSorter {
-    int[] unsortedPancakes1 = {10, 5, 24, 2, 36, 27};
+
+    int[] unsortedPancakes = {10, 5, 24, 2, 36, 27};
+    int[] unsortedPancakes2 = {10, 20, 30, 40, 50, 60};
+
+    public static void main( String[] args )
+    {
+        PancakeSorter pancakeSorter = new PancakeSorter();
+
+        int cutOff = 2;
+        System.out.println( "Findmax searchCutoff= " + cutOff);
+        int findMaxIndex = pancakeSorter.findMax(pancakeSorter.unsortedPancakes2, cutOff);
+        System.out.println( "Findmax index result= " + pancakeSorter.unsortedPancakes2[findMaxIndex]);
+
+    }
 
     static int[] sortPancakes(int[] unsortedPancakes)
     {
@@ -23,9 +36,11 @@ public class PancakeSorter {
     static int findMax (int[] pancakes, int searchCutoff)
     {
         int indexCurrentMax = 0;
-        for (int iteration = 0; iteration < searchCutoff; ++iteration) {
-            if (pancakes[iteration] > pancakes[indexCurrentMax]) {
-                indexCurrentMax = pancakes[iteration];
+        for (int iterator = 0; iterator < searchCutoff; iterator++) {
+            System.out.println( "FOR iterator= " + iterator);
+//            System.out.println( "FOR iterator= " + iterator);
+            if (pancakes[iterator] > pancakes[indexCurrentMax]) {
+                indexCurrentMax = iterator;
             }
         }
         return indexCurrentMax;

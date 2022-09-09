@@ -1,10 +1,10 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the PancakeSorter assignment using Test Driven Development.
@@ -25,7 +25,7 @@ public class PancakeSorterTest {
     public void PancakeSorterOnlyPositiveNumbers()
     {
         boolean onlyPositiveFound = true;
-        for (int pancake: pancakeSorter.unsortedPancakes1
+        for (int pancake: pancakeSorter.unsortedPancakes
              ) {
             if (pancake < 1) {
                 onlyPositiveFound = false;
@@ -41,7 +41,7 @@ public class PancakeSorterTest {
     @DisplayName("Assert that the pancake array length is 25 or less.")
     public void PancakeSorterArrayLength()
     {
-        assertTrue( pancakeSorter.unsortedPancakes1.length <= 25);
+        assertTrue( pancakeSorter.unsortedPancakes.length <= 25);
     }
 
     /**
@@ -51,6 +51,28 @@ public class PancakeSorterTest {
     @DisplayName("Assert that the pancake array is not empty.")
     public void PancakeSorterArrayNotEmpty()
     {
-        assertTrue( pancakeSorter.unsortedPancakes1.length > 0);
+        assertTrue( pancakeSorter.unsortedPancakes.length > 0);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that the findMax function is able to find the maximum value in the array.")
+    public void FindMaxCorrectlyFound()
+    {
+        int[] pancakeStack = {10, 20, 30, 40, 50};
+        assertEquals( pancakeSorter.findMax(pancakeStack, pancakeStack.length), 4);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that the findMax function 'searchCutoff' parameter works.")
+    public void FindMaxSearchCutOffWorks()
+    {
+        int[] pancakeStack = {10, 50, 20, 60, 30};
+        assertEquals( pancakeSorter.findMax(pancakeStack, 4), 3);
     }
 }
