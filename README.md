@@ -18,7 +18,11 @@ Place here the results of the following command: git log --pretty=format:"%hx %a
 
 A dated screenshot of the overview of the following  quality gates(https://docs.sonarqube.org/latest/user-guide/quality-gates/): Reliability, Security,Maintainability, Coverage and Duplications. Provide a short discussion of the results.
 
-![](/replace-this-with-path-to-your-png-file/dated-screenshot-sonarqube-qualitygates.png)  
+"Screenshots and files/Assignment 1/2022-09-10 19_35_15-Testing1_sonarqube.png"
+
+The quality gates all passed with an 'A'. This is good but not that surprising since the codebase is rather small. The were some 'Code Smells' that I had to address.
+These were mostly print statements that were still in the code for testing purposes. I had to replace the use of 'System.out' with a 'logger'. There was also one issue
+where I had to refactor code by changing an 'instance-reference' to a 'static reference'.
 
 ### 3. Test Driven Development
 

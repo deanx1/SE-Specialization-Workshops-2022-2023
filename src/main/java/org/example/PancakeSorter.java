@@ -8,17 +8,10 @@ public class PancakeSorter {
 
     int[] unsortedPancakes = {10, 5, 24, 2, 36, 27};
     int[] unsortedPancakes2 = {10, 20, 30, 40, 50, 60};
-    int[] unsortedPancakes3 = {60, 50, 40, 30, 20, 10};
 
     public static void main( String[] args )
     {
         PancakeSorter pancakeSorter = new PancakeSorter();
-
-        int cutOff = 2;
-        System.out.println( "Findmax searchCutoff= " + cutOff);
-        int findMaxIndex = pancakeSorter.findMax(pancakeSorter.unsortedPancakes2, cutOff);
-        System.out.println( "Findmax index result= " + pancakeSorter.unsortedPancakes2[findMaxIndex]);
-
     }
 
     static int[] sortPancakes(int[] unsortedPancakes)
