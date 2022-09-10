@@ -109,9 +109,45 @@ public class PancakeSorterTest {
 
         pancakeSorter.flip(pancakeStack, pancakeStack.length - 2);
 
-        System.out.println(Arrays.toString(originalPancakeStack));
-        System.out.println(Arrays.toString(pancakeStack));
+//        System.out.println(Arrays.toString(originalPancakeStack));
+//        System.out.println(Arrays.toString(pancakeStack));
 
         assertArrayEquals(pancakeStack, pancakeStackSorted);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that an already sorted pancakes array does not change when we try to sort it")
+    public void SortAlreadySortedPancakes()
+    {
+        int[] alreadySortedPancakes = {10, 20, 30, 40, 50};
+        int[] originalPancakeStack = alreadySortedPancakes.clone();
+
+        pancakeSorter.sortPancakes(alreadySortedPancakes, alreadySortedPancakes.length);
+
+//        System.out.println(Arrays.toString(originalPancakeStack));
+//        System.out.println(Arrays.toString(alreadySortedPancakes));
+
+        assertArrayEquals(originalPancakeStack, alreadySortedPancakes);
+    }
+
+    /**
+     * Unit Test
+     */
+    @Test
+    @DisplayName("Assert that the sort functionality works and an unsorted array get sorted correctly.")
+    public void SortUnsortedPancakes()
+    {
+        int[] toBeSortedPancakes = {60, 20, 10, 40, 90};
+        int[] correctlySortedPancakes = {10, 20, 40, 60, 90};
+
+        pancakeSorter.sortPancakes(toBeSortedPancakes, toBeSortedPancakes.length);
+
+        System.out.println(Arrays.toString(toBeSortedPancakes));
+        System.out.println(Arrays.toString(correctlySortedPancakes));
+
+        assertArrayEquals(toBeSortedPancakes, correctlySortedPancakes);
     }
 }

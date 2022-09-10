@@ -51,11 +51,30 @@ public class PancakeSorter {
     {
         int indexCurrentMax = 0;
         for (int iterator = 0; iterator < searchCutoff; iterator++) {
-//            System.out.println( "FOR iterator= " + iterator);
             if (pancakes[iterator] > pancakes[indexCurrentMax]) {
                 indexCurrentMax = iterator;
             }
         }
         return indexCurrentMax;
+    }
+
+    static void sortPancakes (int[] pancakes, int loopCutoff)
+    {
+        // Start at the end of the array and work yourself backwards to the beginning.
+        for (int currentCutoff = loopCutoff; currentCutoff > 1; --currentCutoff) {
+
+            // Find the index with the maximum value within our current array section
+            int maxIndex = findMax(pancakes, currentCutoff);
+
+            // Move the biggest pancake to the end of the current array section.
+            if (maxIndex != currentCutoff-1)
+            {
+                // Flip the max index to the beginning of the array. So we can later flip it to the end
+                flip(pancakes, maxIndex);
+
+                // Move the max index to the end
+                flip(pancakes, currentCutoff-1);
+            }
+        }
     }
 }
